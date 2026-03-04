@@ -1,0 +1,1165 @@
+/* ===========================
+   RESET & VARIABLES
+   =========================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0b3d91;
+    --primary-dark: #072c66;
+    --secondary: #f39c12;
+    --light-bg: #f5f5f5;
+    --text-main: #333;
+    --text-light: #f9f9f9;
+    --radius: 8px;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --max-width: 1100px;
+    --transition-fast: 0.2s ease-in-out;
+    --transition: 0.3s ease;
+    --font-main: "Poppins", system-ui, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--light-bg);
+    color: var(--text-main);
+}
+
+
+/* ===========================
+   BOUTON RETOUR HAUT
+   =========================== */
+
+.top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background: var(--secondary);
+    padding: 12px 14px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1500;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.top-btn:hover {
+    background: #e38b07;
+    transform: translateY(-4px);
+}
+
+
+/* ===========================
+       HEADER
+   =========================== */
+
+header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 12px 20px;
+    color: var(--text-light);
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Logo stylé dans le header */
+.header-logo {
+    background: white;
+    padding: 5px;
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.06);
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+
+/* ===========================
+      LANG SWITCHER
+   =========================== */
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lang-switcher a {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    gap: 6px;
+    padding: 4px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.lang-switcher a:hover {
+    color: var(--secondary);
+}
+
+.flag {
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+
+/* ===========================
+       NAVIGATION
+   =========================== */
+
+/* Corrige l’espace blanc entre header et menu */
+header {
+    margin-bottom: 0 !important;
+}
+
+/* NAVIGATION corrigée (supprime l’espace blanc) */
+nav {
+    background: var(--primary-dark);
+    padding: 12px;
+    position: sticky;
+    top: 0;   /* ← CHANGEMENT IMPORTANT */
+    z-index: 990;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+}
+
+.nav-links a:hover {
+    background: var(--primary);
+    border-radius: 999px;
+    transform: translateY(-2px);
+}
+
+/* MENU MOBILE */
+
+.burger {
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.burger div {
+    width: 28px;
+    height: 4px;
+    background: white;
+    margin: 5px;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+.toggle div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.toggle div:nth-child(2) {
+    opacity: 0;
+}
+.toggle div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/* ===========================
+         HERO
+   =========================== */
+
+.hero {
+    position: relative;
+    background: url("img/banner.jpg") center/cover no-repeat;
+    padding: 130px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 44, 102, 0.75);
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.hero p {
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+
+/* ===========================
+        BOUTONS
+   =========================== */
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    background: var(--secondary);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: #e38b07;
+    transform: translateY(-3px);
+}
+
+.btn--primary {
+    background: var(--primary);
+}
+
+
+/* ===========================
+        PARTENAIRES
+   =========================== */
+
+.partners {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.partners img {
+    width: 150px;
+    height: 80px;
+    object-fit: contain;
+    background: white;
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.partners img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+
+/* ===========================
+        SECTIONS
+   =========================== */
+
+.section {
+    max-width: var(--max-width);
+    margin: 25px auto;
+    background: white;
+    padding: 35px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.section h2 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+
+/* ===========================
+       STATISTIQUES
+   =========================== */
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.stat {
+    flex: 1 1 200px;
+    background: #f9fafc;
+    padding: 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.stat:hover {
+    transform: translateY(-6px);
+}
+
+.stat i {
+    color: var(--primary);
+}
+
+
+/* ===========================
+         FOOTER
+   =========================== */
+
+footer.footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.footer-grid h4 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.footer-grid a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .copyright {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+
+/* ===========================
+   FOOTER BRAND (LOGO)
+   =========================== */
+
+.footer-brand {
+    text-align: left;
+}
+
+.footer-brand p {
+    margin: 8px 0 14px;
+    line-height: 1.5;
+}
+
+.footer-logo {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    margin-top: 10px;
+
+    background: white;
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+}
+
+
+/* ===========================
+   ICÔNES RÉSEAUX SOCIAUX FOOTER
+   =========================== */
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-social h4 {
+    margin-bottom: 8px;
+}
+
+.social-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: white;
+    color: var(--primary-dark);
+
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px) scale(1.08);
+}
+
+/* Couleurs spécifiques */
+.facebook { color: #1877f2; }
+.whatsapp { color: #25D366; }
+.youtube  { color: #ff0000; }
+.twitter  { color: #000000; }
+.instagram { color: #e1306c; }
+
+
+/* ===========================
+       RESPONSIVE
+   =========================== */
+
+@media (max-width: 768px) {
+
+    /* Header optimisé mobile */
+    header {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+    }
+
+    /* Burger visible */
+    .burger {
+        display: block;
+        top: 15px;
+        left: 15px;
+        z-index: 3000;
+    }
+
+    /* Menu mobile corrigé */
+    .nav-links {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: var(--primary-dark);
+        flex-direction: column;
+        display: none;
+        padding: 20px 0;
+        z-index: 2000;
+    }
+
+    .nav-links.nav-active {
+        display: flex;
+        animation: slideDown 0.25s ease-out;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        font-size: 17px;
+        width: 100%;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 90px 16px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    /* Footer & logo footer centrés sur mobile */
+    .footer-grid {
+        text-align: center;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px auto 0;
+    }
+}
+/* Correction bouton top */
+.top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background: var(--secondary);
+    padding: 14px 16px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 3000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.top-btn i {
+    font-size: 18px;
+}
+
+.top-btn.show {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* =============================== */
+/*     CONTENEUR PRINCIPAL ABOUT   */
+/* =============================== */
+
+.about-wrapper {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+
+/* =============================== */
+/*           ABOUT CARDS           */
+/* =============================== */
+
+.about-card {
+    background: #ffffff;
+    padding: 22px;
+    margin: 25px auto;
+    border-radius: 14px;
+
+    /* Corrections importantes */
+    border: none;               /* On enlève les anciennes bordures */
+    border-top: 0 !important;
+    overflow: hidden;           /* Supprime débordements blancs */
+
+    /* Ombre moderne */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+
+    position: relative;
+    transition: transform .2s;
+}
+
+/* Hover simple mais élégant */
+.about-card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* Bordure colorée dynamique (à gauche) */
+.about-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    border-radius: 14px 0 0 14px;
+    background: var(--border-color, #0b3d91);
+}
+
+
+/* =============================== */
+/*          TITRES DES CARTES      */
+/* =============================== */
+
+.about-card h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--border-color, #0b3d91);
+}
+
+
+/* =============================== */
+/*         TEXTE À L'INTÉRIEUR     */
+/* =============================== */
+
+.about-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.about-card ul {
+    margin-left: 15px;
+}
+
+.about-card li {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+
+/* =============================== */
+/*          BOUTON TOP FIXE        */
+/* =============================== */
+
+.top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1A73E8;
+    color: white;
+    padding: 13px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    z-index: 9999;
+}
+
+.top-btn.show {
+    display: block;
+}
+
+.top-btn i {
+    font-size: 20px;
+}
+
+
+/* =============================== */
+/*     MOBILE RESPONSIVE FIXES     */
+/* =============================== */
+
+@media (max-width: 600px) {
+
+    .about-card {
+        padding: 20px;
+        margin: 20px 10px;
+        border-radius: 12px;
+    }
+
+    .about-card::before {
+        width: 6px;
+    }
+
+    .about-card h2 {
+        font-size: 18px;
+    }
+
+    .about-card p, 
+    .about-card li {
+        font-size: 15px;
+    }
+
+    .top-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 11px 13px;
+    }
+}
+
+
+
+
+/* ===================================== */
+/*     SECTION FONDATEURS – BACKGROUND   */
+/* ===================================== */
+
+.founders-section {
+    background: linear-gradient(135deg, #0b3d91 0%, #1e63c6 50%, #0b3d91 100%);
+    padding: 50px 20px;
+    border-radius: 15px;
+    margin: 40px 0;
+    color: white;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* ===================================== */
+/*              CARROUSEL                */
+/* ===================================== */
+
+.founders-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.founders-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 18px;
+    padding: 10px 0;
+}
+
+/* ===================================== */
+/*          CARTE D'UN MEMBRE            */
+/* ===================================== */
+
+.founder-slide {
+    flex: 0 0 200px;
+    background: white;
+    color: #333;
+    border-radius: 15px;
+    padding: 20px 10px;
+    text-align: center;
+    scroll-snap-align: center;
+    border-top: 6px solid var(--color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform .25s ease;
+}
+
+.founder-slide:hover {
+    transform: translateY(-6px);
+}
+
+.founder-photo img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color);
+    margin-bottom: 12px;
+}
+
+.founder-slide h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.founder-slide .qualite {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .founder-slide {
+        flex: 0 0 170px;
+    }
+}
+
+/* ================================ */
+/*     SECTION MEMBRES FONDATEURS   */
+/* ================================ */
+
+.founders-section {
+    background: #f5f7fa;
+    padding: 50px 20px;
+    border-radius: 15px;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #0b3d91;
+}
+
+/* GRID responsive */
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 10px;
+}
+
+/* CARD d’un membre */
+.founder-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--color);
+    transition: transform .25s ease, box-shadow .25s ease;
+    text-align: center;
+}
+
+.founder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+/* Photo ronde */
+.founder-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color);
+    margin-bottom: 15px;
+}
+
+/* Nom */
+.founder-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Qualité */
+.founder-card .qualite {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color);
+}
+
+/* ================================ */
+/*      RESPONSIVE DESIGN           */
+/* ================================ */
+
+@media (max-width: 992px) {
+    .founders-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .founders-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .founder-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+/* ========== SECTION CONTACT ========== */
+
+.contact-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.contact-section .section-title {
+    text-align: center;
+    font-size: 28px;
+    color: #0b3d91;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-desc {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 35px;
+    color: #333;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.btn-send {
+    background: #0b3d91;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    background: #084080;
+}
+
+.contact-info h3 {
+    font-size: 22px;
+    color: #0b3d91;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.contact-info i {
+    color: #0b3d91;
+    margin-right: 8px;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #0b3d91;
+}
+
+.social-icons a:hover {
+    color: #e67e22;
+}
+
+/* Responsive */
+@media(max-width: 850px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+        padding: 10px;
+    }
+}
+
+/* ============================== */
+/*     FIXES SPÉCIAUX WEBVIEW     */
+/* ============================== */
+
+@media all and (max-device-width: 800px) {
+    /* Détection WebView Android */
+    @supports not ((backdrop-filter: blur(10px))) {
+
+        /* FOND DU MENU MOBILE */
+        .mobile-menu,
+        .offcanvas-menu,
+        .drawer-menu {
+            background: #ffffff !important;    /* Fallback sans blur */
+            opacity: 1 !important;
+        }
+
+        /* CONTAINER DERRIÈRE LE MENU */
+        .menu-overlay,
+        .backdrop,
+        .nav-overlay {
+            background: rgba(0,0,0,0.45) !important;
+            filter: none !important;
+        }
+
+        /* FIX DES Z-INDEX QUI BUGGENT SUR WEBVIEW */
+        .mobile-menu,
+        .offcanvas-menu,
+        .drawer-menu {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100vh !important;
+            z-index: 99999 !important;
+        }
+
+        /* FIX DES ICONES MAL ALIGNÉS */
+        .mobile-menu li,
+        .offcanvas-menu li {
+            display: flex !important;
+            align-items: center !important;
+            padding: 14px 22px !important;
+        }
+
+        /* FIX DU SCROLL BLOQUÉ DANS LE MENU */
+        body.mobile-open {
+            overflow: hidden !important;
+        }
+    }
+}
+
+
+/* ============================================================
+   AJEFEM WEBVIEW FIX — Correction affichage Android WebView
+   Ce fichier s'applique SEULEMENT aux navigateurs qui
+   NE supportent PAS backdrop-filter (WebView Android).
+   Ne modifie pas l’apparence du site sur Chrome/Safari/Firefox.
+   ============================================================ */
+
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+
+    /* ----- PANNEAU DU MENU MOBILE ----- */
+    .mobile-menu,
+    .menu-responsive,
+    .menu-panel,
+    .menu-container,
+    #mobileMenu,
+    .offcanvas-menu {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 100% !important;
+        height: 100vh !important;
+
+        z-index: 999999 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        padding-bottom: 40px !important;
+    }
+
+    /* ----- OVERLAY DERRIÈRE LE MENU ----- */
+    .overlay,
+    .menu-overlay,
+    .offcanvas-backdrop {
+        background: rgba(0, 0, 0, 0.45) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+
+        z-index: 999998 !important;
+    }
+
+    /* ----- HEADER / BARRE BLEUE EN MODE RESPONSIVE ----- */
+    header,
+    .top-header,
+    nav,
+    .navbar {
+        z-index: 100000 !important;
+        position: relative !important;
+    }
+
+    /* ----- BOUTON X POUR FERMER LE MENU ----- */
+    .close-menu,
+    .menu-close,
+    .close-btn {
+        position: absolute !important;
+        top: 18px !important;
+        right: 18px !important;
+        font-size: 32px !important;
+        z-index: 100001 !important;
+    }
+
+    /* ----- ÉVITE QUE LE CONTENU PASSE AU-DESSUS DU MENU ----- */
+    main,
+    section,
+    .content,
+    body {
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* ----- SCROLL DOUX DANS LE MENU ----- */
+    .mobile-menu,
+    .menu-panel {
+        -webkit-overflow-scrolling: touch !important;
+    }
+}

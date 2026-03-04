@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QR Code AJEFEM (vCard)</title>
+  <style>
+    body{font-family:Arial, sans-serif; padding:20px}
+    #qrcode{width:220px; height:220px; margin-top:12px}
+    textarea{width:100%; max-width:720px; height:180px}
+    button{padding:10px 14px; cursor:pointer; margin-top:10px}
+  </style>
+</head>
+<body>
+  <h2>QR Code AJEFEM – vCard</h2>
+
+  <p>Vous pouvez modifier le contenu si besoin :</p>
+  <textarea id="data"></textarea><br />
+  <button id="btn">Générer le QR Code</button>
+
+  <div id="qrcode"></div>
+
+  <!-- Librairie QRCode.js -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script>
+    // vCard (format contact) : très bien reconnu par les téléphones
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:PhD. MALOANI SAIDI GEORGES
+N:MALOANI SAIDI GEORGES;;;;
+ORG:AJEFEM - Actions de Jeunes et Femmes pour l'Entraide Mutuelle
+TITLE:Coordonnateur National
+TEL;TYPE=CELL:+243826704930
+EMAIL:ajefemasbl@gmail.com
+ADR;TYPE=WORK:;;Bukavu;Sud-Kivu;;RDC
+URL:https://ajefem.org/
+END:VCARD`;
+
+    const textarea = document.getElementById("data");
+    textarea.value = vcard;
+
+    let qr = null;
+
+    function generateQR() {
+      const text = textarea.value.trim();
+      if (!text) return;
+
+      // Nettoyage
+      document.getElementById("qrcode").innerHTML = "";
+
+      // Génération (taille et correction d’erreur)
+      qr = new QRCode(document.getElementById("qrcode"), {
+        text: text,
+        width: 220,
+        height: 220,
+        correctLevel: QRCode.CorrectLevel.H // H = meilleure tolérance
+      });
+    }
+
+    document.getElementById("btn").addEventListener("click", generateQR);
+
+    // Générer au chargement
+    generateQR();
+  </script>
+</body>
+</html>

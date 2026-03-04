@@ -1,0 +1,45 @@
+{
+  "fr": {
+    "home_title": "Ensemble, renforçons la solidarité et l’autonomisation",
+    "home_subtitle": "Unir les jeunes et les femmes pour construire un avenir meilleur.",
+    "support_us": "Soutenir nos actions",
+    "welcome": "Bienvenue à l’AJEFEM",
+    "welcome_text": "L’AJEFEM œuvre pour l’autonomisation des femmes, l’encadrement des jeunes, la solidarité communautaire et l’amélioration des conditions de vie.",
+    "our_impact": "Notre Impact",
+    "partners": "Nos Partenaires",
+    "join": "Rejoindre l’AJEFEM",
+    "discover_programs": "Découvrir nos programmes",
+    "menu_home": "Accueil",
+    "menu_about": "À propos",
+    "menu_programs": "Programmes",
+    "menu_donate": "Faire un don",
+    "menu_contact": "Contact",
+    "footer_follow": "Suivez-nous",
+    "footer_navigation": "Navigation",
+    "footer_contact": "Contact",
+    "footer_rights": "Tous droits réservés",
+    "footer_dev": "Développé avec ❤️ par MS Solutions Lab"
+  },
+
+  "en": {
+    "home_title": "Together, let’s strengthen solidarity and empowerment",
+    "home_subtitle": "Unite young people and women to build a better future.",
+    "support_us": "Support our work",
+    "welcome": "Welcome to AJEFEM",
+    "welcome_text": "AJEFEM works for women's empowerment, youth mentoring, community solidarity, and improving living conditions.",
+    "our_impact": "Our Impact",
+    "partners": "Our Partners",
+    "join": "Join AJEFEM",
+    "discover_programs": "Discover our programs",
+    "menu_home": "Home",
+    "menu_about": "About",
+    "menu_programs": "Programs",
+    "menu_donate": "Donate",
+    "menu_contact": "Contact",
+    "footer_follow": "Follow us",
+    "footer_navigation": "Navigation",
+    "footer_contact": "Contact",
+    "footer_rights": "All rights reserved",
+    "footer_dev": "Developed with ❤️ by MS Solutions Lab"
+  }
+}
